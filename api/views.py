@@ -28,12 +28,9 @@ class CalculationView(View):
             x = json_data['x']
             y = json_data['y']
             
+            
             if formatted_operation == 'multiplication':
-                result = {
-                "slackUsername": "solomonuche42",
-                "operation_type": formatted_operation,
-                "result": x * y,
-            }
+               
                 return JsonResponse(result, safe=False)
             elif formatted_operation =='addition':
                 result = {
@@ -42,7 +39,7 @@ class CalculationView(View):
                 "result": x + y,
             }
                 return JsonResponse(result, safe=False)
-            elif formatted_operation == 'substraction':
+            elif formatted_operation == 'subtraction':
                 result = {
                 "slackUsername": "solomonuche42",
                 "operation_type": formatted_operation,
