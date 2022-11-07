@@ -15,4 +15,4 @@ def process_result(operation_type, x, y):
     return result
     
     
-print(process_result('addition', 5, 4))
+# print(process_result('addition', 5, 4))

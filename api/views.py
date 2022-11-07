@@ -2,6 +2,7 @@ from django.views.generic import View
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
+from api.my_utils import process_result
 import json
 # Create your views here.
 
@@ -27,25 +28,26 @@ class CalculationView(View):
             formatted_operation = operation.lower()
             x = json_data['x']
             y = json_data['y']
+            return JsonResponse(process_result(formatted_operation, x, y))
             
             
-            if formatted_operation == 'multiplication':
+            # if formatted_operation == 'multiplication':
                
-                return JsonResponse(result, safe=False)
-            elif formatted_operation =='addition':
-                result = {
-                "slackUsername": "solomonuche42",
-                "operation_type": formatted_operation,
-                "result": x + y,
-            }
-                return JsonResponse(result, safe=False)
-            elif formatted_operation == 'subtraction':
-                result = {
-                "slackUsername": "solomonuche42",
-                "operation_type": formatted_operation,
-                "result": x - y,
-            }
-                return JsonResponse(result)
-            else:
-                return JsonResponse('Invalid operator', safe=False)
+            #     return JsonResponse(result, safe=False)
+            # elif formatted_operation =='addition':
+            #     result = {
+            #     "slackUsername": "solomonuche42",
+            #     "operation_type": formatted_operation,
+            #     "result": x + y,
+            # }
+            #     return JsonResponse(result, safe=False)
+            # elif formatted_operation == 'subtraction':
+            #     result = {
+            #     "slackUsername": "solomonuche42",
+            #     "operation_type": formatted_operation,
+            #     "result": x - y,
+            # }
+            #     return JsonResponse(result)
+            # else:
+            #     return JsonResponse('Invalid operator', safe=False)
         return JsonResponse('No data posted. Please post  JSON DAT.', safe=False)
