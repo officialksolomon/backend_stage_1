@@ -28,26 +28,5 @@ class CalculationView(View):
             formatted_operation = operation.lower()
             x = json_data['x']
             y = json_data['y']
-            return JsonResponse(process_result(formatted_operation, x, y))
-            
-            
-            # if formatted_operation == 'multiplication':
-               
-            #     return JsonResponse(result, safe=False)
-            # elif formatted_operation =='addition':
-            #     result = {
-            #     "slackUsername": "solomonuche42",
-            #     "operation_type": formatted_operation,
-            #     "result": x + y,
-            # }
-            #     return JsonResponse(result, safe=False)
-            # elif formatted_operation == 'subtraction':
-            #     result = {
-            #     "slackUsername": "solomonuche42",
-            #     "operation_type": formatted_operation,
-            #     "result": x - y,
-            # }
-            #     return JsonResponse(result)
-            # else:
-            #     return JsonResponse('Invalid operator', safe=False)
-        return JsonResponse('No data posted. Please post  JSON DAT.', safe=False)
+            return JsonResponse(process_result(formatted_operation, x, y), safe=False)
+        return JsonResponse('No data posted. Please post  JSON DATA.', safe=False)
