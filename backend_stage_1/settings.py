@@ -37,14 +37,26 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'api.apps.ApiConfig',
+     # 'crispy_forms'
+    'crispy_forms',
     "django.contrib.admin",
     "django.contrib.auth",
+    'django.contrib.sites',
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    'django.contrib.humanize',
     'corsheaders',
+    # allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+   
 ]
+
+# cripsy config
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 MIDDLEWARE = [
@@ -63,7 +75,7 @@ ROOT_URLCONF = "backend_stage_1.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -75,6 +87,17 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
 
 WSGI_APPLICATION = "backend_stage_1.wsgi.application"
 
@@ -128,6 +151,12 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+# media files
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = '/media/'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -147,3 +176,19 @@ SECURE_HSTS_SECONDS = env.int("DJANGO_SECURE_HSTS_SECONDS", default=2592000)
 SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool(
     "DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS", default=True)
 SECURE_HSTS_PRELOAD = env.bool("DJANGO_SECURE_HSTS_PRELOAD", default=True)
+
+# all-auth configurations
+# ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 7
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_REQUIRED = False
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 10
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+ACCOUNT_LOGOUT_ON_GET = True
+
+
+# all_auth forms
+ACCOUNT_FORMS = {
+    'signup': 'api.forms.MyCustomSignupForm',
+    'login': 'api.forms.MyCustomLoginForm'
+}

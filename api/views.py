@@ -1,5 +1,6 @@
 from django.views.generic import View
 from django.http import JsonResponse
+from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from api.my_utils import process_result
@@ -7,6 +8,10 @@ import json
 # Create your views here.
 
 
+class HomeView(View):
+    def get(self, request):    
+        return render(request, 'home/home.html')
+        
 class AboutView(View):
     def get(self, request):
         about_info = {

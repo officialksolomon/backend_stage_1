@@ -1,5 +1,5 @@
 from django.db import models
 
-
-# Create your models here.
-# { "slackUsername": String, "backend": Boolean, "age": Integer, "bio": String }
+class Profile(models.Model):
+  name = models.CharField( max_length=50)
+  picture = models.FileField(upload_to='pictures/', max_length=100)

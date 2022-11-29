@@ -1,0 +1,47 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+
+
+{% load static %}
+
+
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+
+{% block content %}
+<section class="container p-5">
+
+    <div class="row">
+        <div class="col-12 ">
+            <div
+                class="d-flex flex-column justify-content-center align-items-center ">
+                <h1 class="text-center">Welcome to TGW</h1>
+                {% if request.user.is_authenticated %}
+                <h5 class="text-center mt-5">Welcome {{request.user.username}}
+                </h5>
+                {% else %}
+                <div class="d-flex justify-content-center align-items-center ">
+                    <a name=""
+                        id=""
+                        class="btn btn-lg fs-6 btn-primary mr-3"
+                        href="{% url 'account_login' %}"
+                        role="button">Login</a>
+                    <a name=""
+                        id=""
+                        class="btn btn-lg fs-6 btn-primary "
+                        href="{% url 'account_signup' %}"
+                        role="button">Register</a>
+                </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+{% endblock content %}

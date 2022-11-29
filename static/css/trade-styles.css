@@ -1,0 +1,107 @@
+.main-content {
+  overflow-y: scroll !important;
+}
+
+.navbar-toggler {
+  z-index: 1000 !important;
+}
+
+a:hover::before {
+  content: "";
+}
+
+li > a {
+  color: white !important;
+  font-size: 1rem !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+a.navlink span {
+  font-size: 0.9rem !important;
+}
+
+li a:hover,
+a:hover {
+  background-color: white !important;
+  color: #0d6efd !important;
+  border-radius: 5px;
+}
+
+li.welcome a:hover {
+  background-color: #0d6efd !important;
+  color: white !important;
+  border-radius: 0;
+}
+
+li.active {
+  border: rgba(255, 255, 255, 0.164) 1px solid;
+  border-radius: 5px;
+}
+
+.border-left {
+  border-width: 7px !important;
+}
+
+::-moz-placeholder {
+  font-size: 0.7rem !important;
+}
+
+:-ms-input-placeholder {
+  font-size: 0.7rem !important;
+}
+
+::placeholder {
+  font-size: 0.7rem !important;
+}
+
+.avatar-wrapper {
+  top: -40px !important;
+}
+
+.avatar {
+  border-width: 3px !important;
+}
+
+.plan:hover {
+  background-color: #eef3ff !important;
+  border-width: 2px !important;
+  box-shadow: -5px 5px 5px gray;
+}
+
+.upload-alert {
+  z-index: 1000 !important;
+}
+
+.main-content {
+  overflow-y: scroll !important;
+}
+
+.copy-btn {
+  font-size: 0.5rem !important;
+  padding: 2px 4px !important;
+}
+
+@media screen and (min-width: 567px) {
+  a span::before {
+    content: " ";
+  }
+}
+@media screen and (max-width: 900px) {
+  a.nav-link span {
+    font-size: 0.5rem !important;
+    font-weight: bold;
+  }
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+  .verified {
+    font-size: 0.7rem !important;
+  }
+}/*# sourceMappingURL=trade-styles.css.map */
