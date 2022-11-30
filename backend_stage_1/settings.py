@@ -185,10 +185,13 @@ ACCOUNT_EMAIL_REQUIRED = False
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 10
 ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
 ACCOUNT_LOGOUT_ON_GET = True
-
+ACCOUNT_SESSION_REMEMBER = False
+ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_SIGNUP_REDIRECT_URL = "account_login"
 
 # all_auth forms
 ACCOUNT_FORMS = {
     'signup': 'api.forms.MyCustomSignupForm',
     'login': 'api.forms.MyCustomLoginForm'
 }
+

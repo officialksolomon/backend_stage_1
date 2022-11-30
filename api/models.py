@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 class Profile(models.Model):
+  user = models.OneToOneField(User, related_name='profile', on_delete=models.CASCADE)
   name = models.CharField( max_length=50)
-  picture = models.FileField(upload_to='pictures/', max_length=100)
+  picture = models.ImageField(upload_to='pictures/', max_length=100)

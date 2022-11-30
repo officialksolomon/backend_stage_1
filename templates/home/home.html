@@ -23,6 +23,11 @@
                 {% if request.user.is_authenticated %}
                 <h5 class="text-center mt-5">Welcome {{request.user.username}}
                 </h5>
+                <a name=""
+                    id=""
+                    class="btn btn-primary"
+                    href="{% url 'account_logout' %}"
+                    role="button">Logout</a>
                 {% else %}
                 <div class="d-flex justify-content-center align-items-center ">
                     <a name=""
